@@ -1,5 +1,7 @@
 # Django Project Boilerplate
 
+* Current Django version: 1.10
+* Requires Python 3
 * Requires PostgreSQL
 * Update this README when used on other projects
 
@@ -9,14 +11,11 @@
 ```
 pip install -r requirements.txt
 ```
-- Set environment variables:
+- Update configuration file
 ```
-DB_NAME=XXXXXXXXXXXXXXX
-DB_USER=XXXXXXXXXXXXXXX
-DB_PASSWORD=XXXXXXXXXXX
-DB_HOST=XXXXXXXXXXXXXXX [default:127.0.0.1]
-DB_PORT=XXXXXXXXXXXXXXX [default:5432]
-DEBUG=True
+1. Open config-sample.py.
+2. Fill in the values.
+3. Save as config.py
 ```
 - Sync database
 ```

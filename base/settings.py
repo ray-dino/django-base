@@ -10,6 +10,10 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+try:
+    import config
+except:
+    print('Missing configuration file. See config-sample.py.')
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -21,7 +25,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'vps97u(n^(gqmhab7m$mirjd1q2s0$eke(neny4xvzp$-82%#n'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG', False)
+DEBUG = config.DEBUG
 
 ALLOWED_HOSTS = []
 
@@ -72,19 +76,13 @@ WSGI_APPLICATION = 'base.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
-DB_NAME = os.environ.get('DB_NAME')
-DB_USER = os.environ.get('DB_USER')
-DB_PASSWORD = os.environ.get('DB_PASSWORD')
-DB_HOST = os.environ.get('DB_HOST', '127.0.0.1')
-DB_PORT = os.environ.get('DB_PORT', '5432')
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': DB_NAME,
-        'USER': DB_USER,
-        'HOST': DB_HOST,
-        'PORT': DB_PORT
+        'NAME': config.DB_NAME,
+        'USER': config.DB_USER,
+        'HOST': config.DB_HOST,
+        'PORT': config.DB_PORT
     }
 }
 
